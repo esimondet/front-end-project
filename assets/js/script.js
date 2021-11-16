@@ -2,22 +2,23 @@
 var privKey = "f7b73285d9cec4962b01dc78e356e5b8a0e6b78f";
 var pubKey = "d2eac0264cc9a3719ac91f730963a3e8";
 
-function getMarvelResponse() {
+function getHeroId() {
 
     //per API documentation, new timestamp needed with every request
     var ts = new Date().getTime();
+    //per terms of use, privKey must be encrypted 
     var hash = CryptoJS.MD5(ts + privKey + pubKey).toString();
 
-    var characterID = "1009718"; //temporary place holder, wolverine
+    var heroName = "hulk"; //$("#hero");
     
-    var url = "https://gateway.marvel.com:443/v1/public/characters/" + characterID;
+    var url = "https://gateway.marvel.com/v1/public/characters?name=" + heroName;
 
     console.log(url);
     $.getJSON(url, {
         ts: ts,
         apikey: pubKey,
-        hash: hash
-        
+        hash: hash,
+
     })
     .done(function(data) {
         console.log(data);
@@ -27,6 +28,9 @@ function getMarvelResponse() {
     });
 };
 
-getMarvelResponse();
+getHeroId(); //$(document).on("click", "#heroBtn", getHeroId());
 
-//https://gateway.marvel.com:443/v1/public/characters/1009718?apikey=d2eac0264cc9a3719ac91f730963a3e8
+
+
+//https://gateway.marvel.com:443/v1/public/characters?name=hulk&apikey=d2eac0264cc9a3719ac91f730963a3e8
+//https://gateway.marvel.com:433/v1/public/characters?name=hulk&ts=1637102859893&apikey=d2eac0264cc9a3719ac91f730963a3e8&hash=83ea153556699b9a1027a3e058859bb2
