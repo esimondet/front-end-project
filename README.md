@@ -8,6 +8,9 @@ Find a hero near you!
 
 
 ## Built With
+ * HTML
+ * JavaScript
+ * CSS
 
 
 ## Third Party Libraries
