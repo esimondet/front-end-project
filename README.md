@@ -2,13 +2,11 @@
 Hero Maps
 
 ## Purpose
-AS A citizen in distress 
-I WANT an app that finds nearby heroes
-SO THAT I can be saved quickly
+
 
 
 ## Description
-An interactive webpage that allows the user to find the neaest 5 superheroes in a moment of distress.
+An interactive webpage that allows the user build a unique team of heroes and delivers a list of information about them including last known locatoin, place of origin, powers, etc.
 
 ## Built With
  * HTML
@@ -28,4 +26,5 @@ You can view the live deployment [HERE](https://esimondet.github.io/front-end-pr
 
 ## Contribution
  * Edison Simondet (github: esimondet)
- * Sophia Nguyen (github: )
+ * Sophia Nguyen (github: nguy2935)
+ * Evan Carlson (github: epc318)
