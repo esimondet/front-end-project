@@ -31,7 +31,7 @@ function getHeroId() {
 
 getHeroId(); //$(document).on("click", "#heroBtn", getHeroId());
 
-
+//next step scrape
 
 //https://gateway.marvel.com:443/v1/public/characters?name=hulk&apikey=d2eac0264cc9a3719ac91f730963a3e8
 //https://gateway.marvel.com:433/v1/public/characters?name=hulk&ts=1637102859893&apikey=d2eac0264cc9a3719ac91f730963a3e8&hash=83ea153556699b9a1027a3e058859bb2
