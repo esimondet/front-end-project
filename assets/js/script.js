@@ -22,6 +22,7 @@ function getHeroId() {
     })
     .done(function(data) {
         console.log(data);
+        //return Id
     })
     .fail(function(err) {
         console.log(err); //error codes found on developer.marvel.com
