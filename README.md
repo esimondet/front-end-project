@@ -1,11 +1,14 @@
 ## Front End Project
 Hero Maps
+
 ## Purpose
-Find a hero near you!
+AS A citizen in distress 
+I WANT an app that finds nearby heroes
+SO THAT I can be saved quickly
 
 
 ## Description
-
+An interactive webpage that allows the user to find the neaest 5 superheroes in a moment of distress.
 
 ## Built With
  * HTML
@@ -24,3 +27,5 @@ You can view the live deployment [HERE](https://esimondet.github.io/front-end-pr
 ![Full page screenshot of the Password Generator](assets/images/full-page-screenshot.png)
 
 ## Contribution
+ * Edison Simondet (github: esimondet)
+ * Sophia Nguyen (github: )
