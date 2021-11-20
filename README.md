@@ -1,11 +1,12 @@
 ## Front End Project
 Hero Maps
+
 ## Purpose
-Find a hero near you!
+
 
 
 ## Description
-
+An interactive webpage that allows the user build a unique team of heroes and delivers a list of information about them including last known locatoin, place of origin, powers, etc.
 
 ## Built With
  * HTML
@@ -24,3 +25,6 @@ You can view the live deployment [HERE](https://esimondet.github.io/front-end-pr
 ![Full page screenshot of the Password Generator](assets/images/full-page-screenshot.png)
 
 ## Contribution
+ * Edison Simondet (github: esimondet)
+ * Sophia Nguyen (github: nguy2935)
+ * Evan Carlson (github: epc318)
