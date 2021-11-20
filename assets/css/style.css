@@ -4,5 +4,7 @@
 }
 
 /* FOOTER STYLES START */
-
+.div.is-size-5 .has-text-centered .container .column .is-3 .my-5 {
+  border: 3px solid black;
+}
   /* END FOOTER STYLES */
