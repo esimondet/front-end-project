@@ -38,12 +38,7 @@ getHeroId(); //$(document).on("click", "#heroBtn", getHeroId());
 
 //google API Key
 
-var key = "AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps"
-
-function myMap() {
-var mapProp = {
-  center:new google.maps.LatLng(51.508742,-0.120850),
-  zoom:5,
-};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
+navigator.geolocation.getCurrentPosition(position => {
+    const { latitude, longitude } = position.coords;
+    // Show a map centered at latitude / longitude.
+  });
