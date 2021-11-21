@@ -35,3 +35,15 @@ getHeroId(); //$(document).on("click", "#heroBtn", getHeroId());
 
 //https://gateway.marvel.com:443/v1/public/characters?name=hulk&apikey=d2eac0264cc9a3719ac91f730963a3e8
 //https://gateway.marvel.com:433/v1/public/characters?name=hulk&ts=1637102859893&apikey=d2eac0264cc9a3719ac91f730963a3e8&hash=83ea153556699b9a1027a3e058859bb2
+
+//google API Key
+
+var key = "AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps"
+
+function myMap() {
+var mapProp = {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
