@@ -49,7 +49,12 @@ function getHeroData() {
             //     });
             // });
 
-            fetch(hero.placeOfOriginUrl, {mode: 'cors'}).then(data => { console.log(data); });
+            fetch(hero.placeOfOriginUrl, {
+                mode: 'cors',
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then(data => { console.log(data); });
 
             console.log(heroList);
         })
