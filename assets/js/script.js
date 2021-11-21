@@ -1,5 +1,10 @@
-// const request= require("request-promise");
-// const cheerio= require("cheerio");
+// require.config({
+//     paths: {
+//         'bluebird': './node_modules/bluebird/js/browser/bluebird',
+//         'cheerio': './node_modules/cheerio/lib/cheerio',
+//         'request-promise': './node_modules/request-promise/lib/rp'
+//     }
+// });
 
 //Marvel API Key
 var privKey = "f7b73285d9cec4962b01dc78e356e5b8a0e6b78f";
@@ -32,12 +37,20 @@ function getHeroData() {
 
             heroList.heros.push(hero);
 
-            // request(hero.placeOfOriginUrl, error, response, html) => {
-            //     if (!error && response.statusCode == 200) {
-            //         const $= cherio.load(html);
+            // require(['bluebird', 'cheerio', 'request-promise'], function (bluebird, cheerio, request) {
+            //     request(hero.placeOfOriginUrl, (error, response, html) => {
+            //         if (!error && response.statusCode == 200) {
+            //             alert(html);
+            //             const $ = cheerio.load(html);
+            //             var parent = $(".railBioInfoItem__label:contains('Place of Origin')").parent;
+            //             var origin = parent.find(".railBioLinks").val();
+            //             alert(origin);
+            //         }
+            //     });
+            // });
 
-            //     }
-            // }
+            fetch(hero.placeOfOriginUrl, {mode: 'cors'}).then(data => { console.log(data); });
+
             console.log(heroList);
         })
         .fail(function (err) {
@@ -55,10 +68,9 @@ var heroList = {
 }
 
 
+
 //for hero mispelled: "Looks like that hero is unavailable! Try another"
 //for hero bio &/or image blank: if (value = null || "") { display  "CLASSIFIED"}
-
-//next step scrape
 
 //https://gateway.marvel.com:443/v1/public/characters?name=hulk&apikey=d2eac0264cc9a3719ac91f730963a3e8
 //https://gateway.marvel.com:433/v1/public/characters?name=hulk&ts=1637102859893&apikey=d2eac0264cc9a3719ac91f730963a3e8&hash=83ea153556699b9a1027a3e058859bb2
