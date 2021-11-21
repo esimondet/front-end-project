@@ -32,7 +32,7 @@ function getHeroData() {
             var hero = {
                 "bio": data.data.results[0].description,
                 "imageUrl": data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension,
-                "placeOfOriginUrl": data.data.results[0].urls[1].url.split("?")[0].replace('(', '').replace(')', '').replace(/_/g, '-').replace('universe', 'characters') + '/in-comics'
+                "placeOfOriginUrl": data.data.results[0].urls[1].url.split("?")[0].replace('(', '').replace(')', '').replace(/_/g, '-').replace('universe', 'characters').replace('http', 'https') + '/in-comics'
             }
 
             heroList.heros.push(hero);
