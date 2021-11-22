@@ -137,52 +137,11 @@ if (localStorage.length > 0) {
     heroDiv.append(cardContentDiv);
 
     $("#heroGen").append(heroDiv);
-}
+    }
 }
 
 // load entities that is saved to localStorage
 window.localStorage.getItem(hero);
-
-
-
-
-
-// // saving entities to localStorage
-// var heroSaved = '123';
-// localStorage.setItem('card', JSON.stringify(heroSaved));
-
-// // how we retrieve the stored heroes
-// var heroDisplay = localStorage.getItem('heroSaved');
-
-
-
-
-
-
-// we need to take this object function and convert to string so it can store locally
-//window.localStorage.setItem(hero, JSON.stringify(heroDiv));
-
-// where we store the heroes we searched
-//var saveHeroes = function() {
-   // localStorage.setItem("heroess", JSON.stringify(heroes));
-//}
-
-//heroStored.querySelector("stored").textContent = heroBox;
-//for hero mispelled: "Looks like that hero is unavailable! Try another"
-//for hero bio &/or image blank: if (value = null || "") { display  "CLASSIFIED"}
-
-// function to clear all 
-//function clearHeroes() {
-    //localStorage.removeItem("getHeroData");
-   // localStorage.clear();
-    //sessionStorage.clear();
-//}
-
-//$('#clearBtn').click(function()) {
-  //  $(".clearheroes").empty();
-//}
-
-// localStorage.clear();
 
 $(document).on('click', '#clearBtn', function(event) {
     $('.card').empty();
