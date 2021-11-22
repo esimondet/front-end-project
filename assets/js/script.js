@@ -92,8 +92,9 @@ var heroList = {
 
 // conditional to check if there is anything in localStorage
 if (localStorage.length > 0) {
-
-    var hero = JSON.parse(localStorage.getItem(localStorage.key(0)));
+    for ( var i = 0; i < localStorage.length; i++) {
+    var hero = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    
     heroList.heros.push(hero);
 
     //Bulma documentation found on https://bulma.io/documentation/components/card/
@@ -136,6 +137,7 @@ if (localStorage.length > 0) {
     heroDiv.append(cardContentDiv);
 
     $("#heroGen").append(heroDiv);
+}
 }
 
 // load entities that is saved to localStorage
