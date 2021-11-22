@@ -90,6 +90,61 @@ var heroList = {
     "heros": []
 }
 
+// conditional to check if there is anything in localStorage
+if (localStorage.length > 0) {
+
+    var hero = JSON.parse(localStorage.getItem(localStorage.key(0)));
+    heroList.heros.push(hero);
+
+    //Bulma documentation found on https://bulma.io/documentation/components/card/
+
+    var heroDiv = $("<div class='card'>");
+
+    //hero profile picture
+    var cardContentDiv = $("<div class='card-content'>");
+    var mediaDiv = $("<div class='media'>");
+    var mediaLeftDiv = $("<div class='media-left'>");
+    var heroFigure = $("<figure class='image is-48x48'>");
+    var heroImg = $("<img src='" + hero.imageUrl + "' alt='" + hero.name + " thumbnail'>");
+
+    heroFigure.append(heroImg);
+    mediaLeftDiv.append(heroFigure);
+    mediaDiv.append(mediaLeftDiv);
+    
+
+    //hero name
+    var mediaTitleDiv = $("<div class='media-content'>");
+    var titleP = $("<p class='title is-4'>");
+    titleP.text(hero.name);
+
+    mediaTitleDiv.append(titleP);
+    mediaDiv.append(mediaTitleDiv);
+    cardContentDiv.append(mediaDiv);
+
+    //hero bio
+    var contentClass = $("<div class='content'>");
+    cardContentDiv.append(contentClass);
+    
+    if (hero.bio != null && hero.bio != "") {
+        contentClass.html(hero.bio);
+    } else {
+        contentClass.html("Classified"); 
+    }
+    
+    //final assembly
+
+    heroDiv.append(cardContentDiv);
+
+    $("#heroGen").append(heroDiv);
+}
+
+// load entities that is saved to localStorage
+window.localStorage.getItem(hero);
+
+
+
+
+
 // // saving entities to localStorage
 // var heroSaved = '123';
 // localStorage.setItem('card', JSON.stringify(heroSaved));
