@@ -70,6 +70,9 @@ function getHeroData() {
 
             $("#heroGen").append(heroDiv);
 
+            // saving entities to localStorage
+            localStorage.setItem(heroName, JSON.stringify(hero));
+
         })
         .fail(function (err) {
             console.log(err); //error codes found on developer.marvel.com
@@ -87,30 +90,42 @@ var heroList = {
     "heros": []
 }
 
+// // saving entities to localStorage
+// var heroSaved = '123';
+// localStorage.setItem('card', JSON.stringify(heroSaved));
+
+// // how we retrieve the stored heroes
+// var heroDisplay = localStorage.getItem('heroSaved');
+
+
+
+
+
+
 // we need to take this object function and convert to string so it can store locally
-window.localStorage.setItem(hero, JSON.stringify(heroDiv));
+//window.localStorage.setItem(hero, JSON.stringify(heroDiv));
 
 // where we store the heroes we searched
-var saveHeroes = function() {
-    localStorage.setItem("heroess", JSON.stringify(heroes));
-}
+//var saveHeroes = function() {
+   // localStorage.setItem("heroess", JSON.stringify(heroes));
+//}
 
-heroStored.querySelector("stored").textContent = heroBox;
+//heroStored.querySelector("stored").textContent = heroBox;
 //for hero mispelled: "Looks like that hero is unavailable! Try another"
 //for hero bio &/or image blank: if (value = null || "") { display  "CLASSIFIED"}
 
 // function to clear all 
-function clearHeroes() {
-    localStorage.removeItem("getHeroData");
-    localStorage.clear();
-    sessionStorage.clear();
-}
+//function clearHeroes() {
+    //localStorage.removeItem("getHeroData");
+   // localStorage.clear();
+    //sessionStorage.clear();
+//}
 
 //$('#clearBtn').click(function()) {
   //  $(".clearheroes").empty();
 //}
 
-
+// localStorage.clear();
 
 $(document).on('click', '#clearBtn', function(event) {
     $(".clearheroes").empty();
