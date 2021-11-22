@@ -28,7 +28,8 @@ function getHeroData() {
             }
 
             heroList.heros.push(hero);
-            console.log(heroList);
+
+            //Bulma documentation found on https://bulma.io/documentation/components/card/
 
             var heroDiv = $("<div class='card'>");
 
@@ -56,8 +57,13 @@ function getHeroData() {
             //hero bio
             var contentClass = $("<div class='content'>");
             cardContentDiv.append(contentClass);
-            contentClass.html(hero.bio);
-
+            
+            if (hero.bio != null && hero.bio != "") {
+                contentClass.html(hero.bio);
+            } else {
+                contentClass.html("Classified"); 
+            }
+            
             //final assembly
 
             heroDiv.append(cardContentDiv);
