@@ -1,7 +1,29 @@
 * {
-    font-size: 12px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
 }
+
+body {
+  background: rgb(217,36,43);
+  background: linear-gradient(140deg, rgba(217,36,43,1) 20%, rgba(248,249,213,1) 33%, rgba(31,101,160,1) 82%);
+}
+
+.jumbotron {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 260px;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 1000px;
+}
+
+h1 {
+  color: white;
+  background-color: red;
+  text-align: center;
+}
+
 
 /* FOOTER STYLES START */
 

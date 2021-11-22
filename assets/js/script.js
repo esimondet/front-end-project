@@ -22,6 +22,7 @@ function getHeroData() {
         .done(function (data) {
 
             var hero = {
+                //"name": , tomorrow, add hero name to the array
                 "bio": data.data.results[0].description,
                 "imageUrl": data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension,
             }
