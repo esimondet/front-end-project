@@ -8,22 +8,34 @@ body {
   background: linear-gradient(140deg, rgba(217,36,43,1) 20%, rgba(248,249,213,1) 33%, rgba(31,101,160,1) 82%);
 }
 
+.hero {
+  text-align: center;
+  background-color: red;
+  border-radius: 0 0 15px 15px;
+}
+
 .jumbotron {
   background-image: url("../images/background.jpg");
   background-repeat: no-repeat;
   background-position: center;
   padding-top: 260px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
   height: 1000px;
 }
 
-h1 {
-  color: white;
-  background-color: red;
-  text-align: center;
+.hide {
+  display: none;
 }
 
+.show {
+  display: block;
+}
+
+.hero-box {
+  padding-left: 5%;
+  padding-right: 5%;
+}
 
 /* FOOTER STYLES START */
 
