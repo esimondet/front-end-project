@@ -185,8 +185,7 @@ window.localStorage.getItem(hero);
 // localStorage.clear();
 
 $(document).on('click', '#clearBtn', function(event) {
-    $(".clearheroes").empty();
+    $('.card').empty();
     localStorage.clear();
-    clearHeroes();
     sessionStorage.clear();
 })
