@@ -69,4 +69,3 @@ function initMap() {
       })(marker, count));
     }
   }
-
