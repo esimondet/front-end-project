@@ -1,6 +1,3 @@
-// const request= require("request-promise");
-// const cheerio= require("cheerio");
-
 //Marvel API Key
 var privKey = "f7b73285d9cec4962b01dc78e356e5b8a0e6b78f";
 var pubKey = "d2eac0264cc9a3719ac91f730963a3e8";
@@ -25,24 +22,63 @@ function getHeroData() {
         .done(function (data) {
 
             var hero = {
+                "name": data.data.results[0].name,
                 "bio": data.data.results[0].description,
                 "imageUrl": data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension,
-                "placeOfOriginUrl": data.data.results[0].urls[1].url.split("?")[0].replace('(', '').replace(')', '').replace(/_/g, '-').replace('universe', 'characters') + '/in-comics'
             }
 
             heroList.heros.push(hero);
 
-            // request(hero.placeOfOriginUrl, error, response, html) => {
-            //     if (!error && response.statusCode == 200) {
-            //         const $= cherio.load(html);
+            //Bulma documentation found on https://bulma.io/documentation/components/card/
 
-            //     }
-            // }
-            console.log(heroList);
+            var heroDiv = $("<div class='card'>");
+
+            //hero profile picture
+            var cardContentDiv = $("<div class='card-content'>");
+            var mediaDiv = $("<div class='media'>");
+            var mediaLeftDiv = $("<div class='media-left'>");
+            var heroFigure = $("<figure class='image is-48x48'>");
+            var heroImg = $("<img src='" + hero.imageUrl + "' alt='" + hero.name + " thumbnail'>");
+
+            heroFigure.append(heroImg);
+            mediaLeftDiv.append(heroFigure);
+            mediaDiv.append(mediaLeftDiv);
+            
+
+            //hero name
+            var mediaTitleDiv = $("<div class='media-content'>");
+            var titleP = $("<p class='title is-4'>");
+            titleP.text(hero.name);
+
+            mediaTitleDiv.append(titleP);
+            mediaDiv.append(mediaTitleDiv);
+            cardContentDiv.append(mediaDiv);
+
+            //hero bio
+            var contentClass = $("<div class='content'>");
+            cardContentDiv.append(contentClass);
+            
+            if (hero.bio != null && hero.bio != "") {
+                contentClass.html(hero.bio);
+            } else {
+                contentClass.html("Classified"); 
+            }
+            
+            //final assembly
+
+            heroDiv.append(cardContentDiv);
+
+            $("#heroGen").append(heroDiv);
+
+            // saving entities to localStorage
+            localStorage.setItem(heroName, JSON.stringify(hero));
+
         })
         .fail(function (err) {
             console.log(err); //error codes found on developer.marvel.com
         });
+
+
 };
 
 $(document).on('click', '#heroBtn', function (event) {
@@ -54,11 +90,61 @@ var heroList = {
     "heros": []
 }
 
+// conditional to check if there is anything in localStorage
+if (localStorage.length > 0) {
+    for ( var i = 0; i < localStorage.length; i++) {
+    var hero = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    
+    heroList.heros.push(hero);
 
-//for hero mispelled: "Looks like that hero is unavailable! Try another"
-//for hero bio &/or image blank: if (value = null || "") { display  "CLASSIFIED"}
+    //Bulma documentation found on https://bulma.io/documentation/components/card/
 
-//next step scrape
+    var heroDiv = $("<div class='card'>");
 
-//https://gateway.marvel.com:443/v1/public/characters?name=hulk&apikey=d2eac0264cc9a3719ac91f730963a3e8
-//https://gateway.marvel.com:433/v1/public/characters?name=hulk&ts=1637102859893&apikey=d2eac0264cc9a3719ac91f730963a3e8&hash=83ea153556699b9a1027a3e058859bb2
+    //hero profile picture
+    var cardContentDiv = $("<div class='card-content'>");
+    var mediaDiv = $("<div class='media'>");
+    var mediaLeftDiv = $("<div class='media-left'>");
+    var heroFigure = $("<figure class='image is-48x48'>");
+    var heroImg = $("<img src='" + hero.imageUrl + "' alt='" + hero.name + " thumbnail'>");
+
+    heroFigure.append(heroImg);
+    mediaLeftDiv.append(heroFigure);
+    mediaDiv.append(mediaLeftDiv);
+    
+
+    //hero name
+    var mediaTitleDiv = $("<div class='media-content'>");
+    var titleP = $("<p class='title is-4'>");
+    titleP.text(hero.name);
+
+    mediaTitleDiv.append(titleP);
+    mediaDiv.append(mediaTitleDiv);
+    cardContentDiv.append(mediaDiv);
+
+    //hero bio
+    var contentClass = $("<div class='content'>");
+    cardContentDiv.append(contentClass);
+    
+    if (hero.bio != null && hero.bio != "") {
+        contentClass.html(hero.bio);
+    } else {
+        contentClass.html("Classified"); 
+    }
+    
+    //final assembly
+
+    heroDiv.append(cardContentDiv);
+
+    $("#heroGen").append(heroDiv);
+    }
+}
+
+// load entities that is saved to localStorage
+window.localStorage.getItem(hero);
+
+$(document).on('click', '#clearBtn', function(event) {
+    $('.card').empty();
+    localStorage.clear();
+    sessionStorage.clear();
+})
