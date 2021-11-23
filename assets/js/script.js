@@ -25,6 +25,7 @@ function getHeroData() {
                 "name": data.data.results[0].name,
                 "bio": data.data.results[0].description,
                 "imageUrl": data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension,
+                "location": "",
             }
 
             heroList.heros.push(hero);
@@ -43,7 +44,7 @@ function getHeroData() {
             heroFigure.append(heroImg);
             mediaLeftDiv.append(heroFigure);
             mediaDiv.append(mediaLeftDiv);
-            
+
 
             //hero name
             var mediaTitleDiv = $("<div class='media-content'>");
@@ -57,13 +58,13 @@ function getHeroData() {
             //hero bio
             var contentClass = $("<div class='content'>");
             cardContentDiv.append(contentClass);
-            
+
             if (hero.bio != null && hero.bio != "") {
                 contentClass.html(hero.bio);
             } else {
-                contentClass.html("Classified"); 
+                contentClass.html("Classified");
             }
-            
+
             //final assembly
 
             heroDiv.append(cardContentDiv);
@@ -92,58 +93,62 @@ var heroList = {
 
 // conditional to check if there is anything in localStorage
 if (localStorage.length > 0) {
-    for ( var i = 0; i < localStorage.length; i++) {
-    var hero = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    
-    heroList.heros.push(hero);
+    for (var i = 0; i < localStorage.length; i++) {
+        var hero = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
-    //Bulma documentation found on https://bulma.io/documentation/components/card/
+        heroList.heros.push(hero);
 
-    var heroDiv = $("<div class='card'>");
+        //Bulma documentation found on https://bulma.io/documentation/components/card/
 
-    //hero profile picture
-    var cardContentDiv = $("<div class='card-content'>");
-    var mediaDiv = $("<div class='media'>");
-    var mediaLeftDiv = $("<div class='media-left'>");
-    var heroFigure = $("<figure class='image is-48x48'>");
-    var heroImg = $("<img src='" + hero.imageUrl + "' alt='" + hero.name + " thumbnail'>");
+        var heroDiv = $("<div class='card'>");
 
-    heroFigure.append(heroImg);
-    mediaLeftDiv.append(heroFigure);
-    mediaDiv.append(mediaLeftDiv);
-    
+        //hero profile picture
+        var cardContentDiv = $("<div class='card-content'>");
+        var mediaDiv = $("<div class='media'>");
+        var mediaLeftDiv = $("<div class='media-left'>");
+        var heroFigure = $("<figure class='image is-48x48'>");
+        var heroImg = $("<img src='" + hero.imageUrl + "' alt='" + hero.name + " thumbnail'>");
 
-    //hero name
-    var mediaTitleDiv = $("<div class='media-content'>");
-    var titleP = $("<p class='title is-4'>");
-    titleP.text(hero.name);
+        heroFigure.append(heroImg);
+        mediaLeftDiv.append(heroFigure);
+        mediaDiv.append(mediaLeftDiv);
 
-    mediaTitleDiv.append(titleP);
-    mediaDiv.append(mediaTitleDiv);
-    cardContentDiv.append(mediaDiv);
 
-    //hero bio
-    var contentClass = $("<div class='content'>");
-    cardContentDiv.append(contentClass);
-    
-    if (hero.bio != null && hero.bio != "") {
-        contentClass.html(hero.bio);
-    } else {
-        contentClass.html("Classified"); 
-    }
-    
-    //final assembly
+        //hero name
+        var mediaTitleDiv = $("<div class='media-content'>");
+        var titleP = $("<p class='title is-4'>");
+        titleP.text(hero.name);
 
-    heroDiv.append(cardContentDiv);
+        mediaTitleDiv.append(titleP);
+        mediaDiv.append(mediaTitleDiv);
+        cardContentDiv.append(mediaDiv);
 
-    $("#heroGen").append(heroDiv);
+        //hero bio
+        var contentClass = $("<div class='content'>");
+        cardContentDiv.append(contentClass);
+
+        if (hero.bio != null && hero.bio != "") {
+            contentClass.html(hero.bio);
+        } else {
+            contentClass.html("Classified");
+        }
+
+        //final assembly
+
+        heroDiv.append(cardContentDiv);
+
+        $("#heroGen").append(heroDiv);
+
+        //load map pins
+
+
     }
 }
 
 // load entities that is saved to localStorage
 window.localStorage.getItem(hero);
 
-$(document).on('click', '#clearBtn', function(event) {
+$(document).on('click', '#clearBtn', function (event) {
     $('.card').empty();
     localStorage.clear();
     sessionStorage.clear();
@@ -154,33 +159,45 @@ $(document).on('click', '#clearBtn', function(event) {
 //google API Key
 
 function initMap() {
-    var center = {lat: 40.7142700, lng: -74.0059700};
-    var locations = [
-      ['Spiderman<br>\
-      New York, NY 90017<br>\
-     <a href="">Get Directions</a>',   40.7142700, -74.0059700],
-      [],
-      [],
-      [],
-      []
-    ];
-  var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: center
+
+    //set initial center without hero data
+
+    var center = { lat: 35, lng: 10 };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 2,
+        center: center,
+        mapTypeId: 'satellite',
     });
-  var infowindow =  new google.maps.InfoWindow({});
-  var marker, count;
-  for (count = 0; count < locations.length; count++) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[count][1], locations[count][2]),
-        map: map,
-        title: locations[count][0]
-      });
-  google.maps.event.addListener(marker, 'click', (function (marker, count) {
-        return function () {
-          infowindow.setContent(locations[count][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, count));
+    
+    //On "find hero" click, generate a random location and add this to localstorage array
+
+    var locationAdd = function () {
+        var random = new google.maps.LatLng((Math.random() * (85*2) - 85), (Math.random() * (180*2)-180));
+        var marker = new google.maps.Marker ({
+            map: map,
+            position: random
+        });
+        map.setCenter(marker.getPosition());
     }
-  }
+
+    
+
+    $(document).on('click', '#heroBtn', function () {
+        locationAdd();
+    });
+
+    // var marker, count;
+    // for (count = 0; count < locations.length; count++) {
+    //     marker = new google.maps.Marker({
+    //         position: new google.maps.LatLng(locations[count][1], locations[count][2]),
+    //         map: map,
+    //         title: locations[count][0]
+    //     });
+    //     google.maps.event.addListener(marker, 'click', (function (marker, count) {
+    //         return function () {
+    //             infowindow.setContent(locations[count][0]);
+    //             infowindow.open(map, marker);
+    //         }
+    //     })(marker, count));
+    // }
+}

@@ -40,7 +40,7 @@ body {
 /* FOOTER STYLES START */
 #map {
   height: 400px;
-  width: 50%;
+  width: 100%;
   background-color: grey;
   margin-bottom: 25px;
   align-content: right;
