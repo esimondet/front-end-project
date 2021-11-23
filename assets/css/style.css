@@ -38,5 +38,11 @@ body {
 }
 
 /* FOOTER STYLES START */
-
+#map {
+  height: 400px;
+  width: 50%;
+  background-color: grey;
+  margin-bottom: 25px;
+  align-content: right;
+}
   /* END FOOTER STYLES */

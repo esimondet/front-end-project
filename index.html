@@ -39,30 +39,33 @@
   </section>
 
 
-  <!-- generic place holder iframe, this is not the API and we will not use any of this for the project -->
-  <section class="hide">
-    <div>
-      <div class="mapouter">
-        <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"
-            src="https://maps.google.com/maps?q=&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
-            marginheight="0" marginwidth="0"></iframe><a
-            href="https://www.whatismyip-address.com/divi-discount/"></a><br>
-          <style>
-            .mapouter {
-              position: relative;
-              text-align: right;
-              height: 500px;
-              width: 600px;
-            }
-          </style><a href="https://www.embedgooglemap.net">how to embed google maps into html</a>
-          <style>
-            .gmap_canvas {
-              overflow: hidden;
-              background: none !important;
-              height: 500px;
-              width: 600px;
-            }
-          </style>
+    <!--result section-->
+
+      
+    <section class= "column">
+      <h2 class = "title columns is-3">Results</h2>
+      <h3>Last known Location:</h3>
+    </section>
+    <div id="map"></div>
+  
+
+   <footer class = "has-background-danger-dark is-full-width">
+     <!--API contribution div-->
+    <div class = "columns">
+     <div class = "has-background-danger-dark container column is-3 py-5 px-4">
+      <h2 class="title has-text-black">Made With:</h2>
+          <a class="is-size-5 has-text-black" href="https://developer.marvel.com/">Marvel Developer Portal</a><br />
+          <a class="is-size-5 has-text-black" href="https://developers.google.com/maps/">Google Maps Platform</a>
+     </div>
+     <!--Authors div-->
+     <div class = "has-background-danger-dark container column is-9">
+      <div class = "columns"> 
+       <h2 class="is-size-4 has-text-white py-5 px-3">Development Contributors/ Website Architects:</h2>
+    
+        <div class="is-size-5 has-text-centered container column is-3 my-5 box has-background-black mx-2">
+         <h3 class="has-text-white has-text-weight-bold">Sophia Nguyen (github: nguy2935)</h3>
+         <a class="is-size-6 is-italic has-text-white" href="https://www.linkedin.com/in/sophia-nguyen-297863164/">Sophia's LinkedIn</a><br />
+         <a class="is-size-6 is-italic has-text-white" href="https://nguy2935.github.io/portfolio/">Sophia's Portfolio</a>
         </div>
       </div>
     </div>
@@ -109,22 +112,26 @@
               Portfolio</a>
           </div>
 
+        <div class="is-size-5 has-text-centered column is-3 my-5 box has-background-black mx-2">
+          <h3 class="has-text-white has-text-weight-bold">Evan Carlson (github: epc318)</h3>
+          <a class="is-size-6 is-italic has-text-white" href="https://www.linkedin.com/in/evanpcarlson/">Evan's LinkedIn</a><br />
+          <a class="is-size-6 is-italic has-text-white" href="https://epc318.github.io/Portfolio/">Evan's Portfolio</a>
+        </div>
+  
 
-          <div class="is-size-5 has-text-centered container column is-3 my-5 box has-background-black mx-1">
-            <h3 class="has-text-white has-text-weight-bold">Edison Simondet (github: esimondet)</h3>
-            <a class="is-size-6 is-italic has-text-white"
-              href="https://www.linkedin.com/in/edison-simondet-8863a1209/">Edison's LinkedIn</a><br />
-            <a class="is-size-6 is-italic has-text-white"
-              href="https://esimondet.github.io/challenge-two-professional-portfolio/">Edison's Portfolio</a>
-          </div>
+        <div class="is-size-5 has-text-centered container column is-3 my-5 box has-background-black mx-2">
+          <h3 class="has-text-white has-text-weight-bold">Edison Simondet (github: esimondet)</h3>
+          <a class="is-size-6 is-italic has-text-white" href="https://www.linkedin.com/in/edison-simondet-8863a1209/">Edison's LinkedIn</a><br />
+          <a class="is-size-6 is-italic has-text-white" href="https://esimondet.github.io/challenge-two-professional-portfolio/">Edison's Portfolio</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps&callback=initMap"></script>
 </body>
 
 
