@@ -38,7 +38,3 @@ getHeroId(); //$(document).on("click", "#heroBtn", getHeroId());
 
 //google API Key
 
-navigator.geolocation.getCurrentPosition(position => {
-    const { latitude, longitude } = position.coords;
-    // Show a map centered at latitude / longitude.
-  });
