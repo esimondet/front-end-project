@@ -38,3 +38,35 @@ getHeroId(); //$(document).on("click", "#heroBtn", getHeroId());
 
 //google API Key
 
+function initMap() {
+    var center = {lat: 40.7142700, lng: -74.0059700};
+    var locations = [
+      ['Spiderman<br>\
+      New York, NY 90017<br>\
+     <a href="">Get Directions</a>',   40.7142700, -74.0059700],
+      [],
+      [],
+      [],
+      []
+    ];
+  var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: center
+    });
+  var infowindow =  new google.maps.InfoWindow({});
+  var marker, count;
+  for (count = 0; count < locations.length; count++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[count][1], locations[count][2]),
+        map: map,
+        title: locations[count][0]
+      });
+  google.maps.event.addListener(marker, 'click', (function (marker, count) {
+        return function () {
+          infowindow.setContent(locations[count][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, count));
+    }
+  }
+

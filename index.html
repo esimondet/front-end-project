@@ -32,8 +32,9 @@
     <section class= "column">
       <h2 class = "title columns is-3">Results</h2>
       <h3>Last known Location:</h3>
-      <div id="googleMap" style="width:50%;height:400px; "></div>
     </section>
+    <div id="map"></div>
+  
 
    <footer class = "has-background-danger-dark is-full-width">
      <!--API contribution div-->
@@ -73,8 +74,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps&callback=myMap"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps&callback=initMap"></script>
 </body>
 
 
