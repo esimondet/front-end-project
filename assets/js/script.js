@@ -2,6 +2,10 @@
 var privKey = "f7b73285d9cec4962b01dc78e356e5b8a0e6b78f";
 var pubKey = "d2eac0264cc9a3719ac91f730963a3e8";
 
+// global variables
+var markers = [];
+    
+
 function getHeroData(location=null) {
 
     //per API documentation, new timestamp needed with every request
@@ -148,6 +152,11 @@ $(document).on('click', '#clearBtn', function (event) {
     $('.card').empty();
     localStorage.clear();
     sessionStorage.clear();
+    console.log(markers);
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+        console.log(markers)
+    }
 })
 
 
@@ -164,36 +173,45 @@ function initMap() {
         center: center,
         mapTypeId: 'satellite',
     });
-    
-    if (localStorage.length > 0) {
-        for (var i = 0; i < localStorage.length; i++) {
-            var hero = JSON.parse(localStorage.getItem(localStorage.key(i))); 
-            var heroLocation = hero.location;
-            var heroLocation2 = new google.maps.LatLng(heroLocation.Lat, heroLocation.Lng);
+
+    //On "find hero" click, generate a random location and add this to localstorage array
+
+    var locationAdd = function (heroLocation2=null) {
+        if (heroLocation2 == null) {
+            var random = new google.maps.LatLng((Math.random() * (85*2) - 85), (Math.random() * (180*2)-180));
+            var marker = new google.maps.Marker ({
+                map: map,
+                position: random
+            });
+        } 
+        else {
             var marker = new google.maps.Marker ({
                 map: map,
                 position: heroLocation2
             });
         }
-    }
+        
+        markers.push(marker);
 
-
-    //On "find hero" click, generate a random location and add this to localstorage array
-
-    var locationAdd = function () {
-        var random = new google.maps.LatLng((Math.random() * (85*2) - 85), (Math.random() * (180*2)-180));
-        var marker = new google.maps.Marker ({
-            map: map,
-            position: random
-        });
         map.setCenter(marker.getPosition());
         var locationMarker = {Lat: marker.position.lat(), Lng: marker.position.lng()};
      //   localStorage[ + ' location'] = JSON.stringify(locationMarker);
         return locationMarker;
     }
 
-    //save marker to local storage
-
+    //load marker from local storage
+    if (localStorage.length > 0) {
+        for (var i = 0; i < localStorage.length; i++) {
+            var hero = JSON.parse(localStorage.getItem(localStorage.key(i))); 
+            var heroLocation = hero.location;
+            var heroLocation2 = new google.maps.LatLng(heroLocation.Lat, heroLocation.Lng);
+            locationAdd(heroLocation2);
+            // var marker = new google.maps.Marker ({
+            //     map: map,
+            //     position: heroLocation2
+            // });
+        }
+    }
 
     $(document).on('click', '#heroBtn', function (event) {
         var location = locationAdd();
