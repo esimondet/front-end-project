@@ -22,6 +22,10 @@ body {
   padding: 10%;
 }
 
+.is-4 {
+  color: black;
+}
+
 hr {
   border: 1px solid white;
 }

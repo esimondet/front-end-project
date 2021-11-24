@@ -49,6 +49,7 @@ function getHeroData() {
             //hero name
             var mediaTitleDiv = $("<div class='media-content'>");
             var titleP = $("<p class='title is-4'>");
+            alert(hero.name)
             titleP.text(hero.name);
 
             mediaTitleDiv.append(titleP);
