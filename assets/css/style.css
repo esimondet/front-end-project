@@ -22,15 +22,33 @@ body {
   padding: 10%;
 }
 
+hr {
+  border: 1px solid white;
+}
+
 .search-box {
   padding: 10%;
-  background-color: black;
-  border-radius: 15px;
+  background: rgb(31,31,31);
+  background: linear-gradient(0deg, rgba(31,31,31,1) 0%, rgba(0,0,0,1) 45%, rgba(255,255,255,1) 54%, rgba(0,0,0,1) 63%, rgba(24,24,24,1) 99%);
+  border-radius: 5px;
+}
+
+.search-btn {
+  border-radius: 5px;
+  width: 180px;
 }
 
 .hero-box {
   padding-left: 5%;
   padding-right: 5%;
+}
+
+.clear-btn {
+  margin-top: 5%;
+}
+
+footer {
+  margin-top: 10%;
 }
 
 /* FOOTER STYLES START */

@@ -36,7 +36,7 @@
 
       <div class="column">
         <form class="search-box">
-          <input type="text" id="heroName" />
+          <input type="text" id="heroName" placeholder="Hero Name" class="search-btn"/>
           <hr>
           <button class="button" id="heroBtn">Find Hero</button>
         </form>
@@ -51,16 +51,14 @@
   </section>
 
 
-  <!--result section-->
+  <!--hero data section-->
 
-  <section class="hero-box">
-    <div class="box">
-      <div>
-        <div id="heroGen"></div>
-      </div>
-      <div class="clearBtn">
-        <button class="button is-danger" id="clearBtn">Clear All Heros</button>
-      </div>
+  <section class="hero-box column">
+    <div class="column">
+      <div id="heroGen"></div>
+    </div>
+    <div class="column">
+      <button class="button is-danger" id="clearBtn">Clear All Heros</button>
     </div>
   </section>
 
