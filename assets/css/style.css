@@ -1,35 +1,31 @@
 * {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-sizing: border-box;
 }
 
 body {
-  background: rgb(217,36,43);
-  background: linear-gradient(140deg, rgba(217,36,43,1) 20%, rgba(248,249,213,1) 33%, rgba(31,101,160,1) 82%);
+  font-family: "Bangers", sans-serif;
+  background: rgb(84,84,84);
+  background: radial-gradient(circle, rgba(84,84,84,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%);
 }
 
-.hero {
+.title {
+  font-family: "Press Start 2P", sans-serif;
+  color: white;
   text-align: center;
-  background-color: red;
-  border-radius: 0 0 15px 15px;
+}
+
+.button {
+  font-family: "Press Start 2P", sans-serif;
 }
 
 .jumbotron {
-  background-image: url("../images/background.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  padding-top: 260px;
-  padding-left: 10%;
-  padding-right: 10%;
-  height: 1000px;
+  padding: 10%;
 }
 
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
+.search-box {
+  padding: 10%;
+  background-color: black;
+  border-radius: 15px;
 }
 
 .hero-box {

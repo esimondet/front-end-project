@@ -5,33 +5,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Press Start 2P">
+  <link rel="stylesheet" href="assets/css/style.css" />
   <title>Hero Maps</title>
 </head>
 
 <body>
-  <header class="hero is-small is-info">
+  <header class="hero is-small">
     <div class="hero-body">
       <h1 class="title">Hero Maps</h1>
     </div>
   </header>
 
   <section class="jumbotron">
-    <div class="box columns user-form">
-      <div class="box column">
+    <div class="columns user-form">
+      <div class="column box">
         <h3> Hello Agent, </h3>
         <p>Thank you for coming on such short notice. A threat like none other is coming and time is of the essence. We
           need you to
-          to assemble Earth's mightest heros! Use the S.H.I.E.L.D. database to find available heroes, then you can read a
+          to assemble Earth's mightest heros! Use the S.H.I.E.L.D. database to find available heroes, then you can read
+          a
           short description
           and see an image of them. That is, if your security clearance allows...
         </p>
       </div>
       <div class="column">
-        <form class="box search-box">
+        <form class="search-box">
           <input type="text" id="heroName" />
+          <hr>
           <button class="button" id="heroBtn">Find Hero</button>
         </form>
       </div>
@@ -40,19 +43,19 @@
   </section>
 
 
-    <!--result section-->
+  <!--result section-->
 
   <section class="hero-box">
     <div class="box">
-    <div>
-      <div id="heroGen"></div>
+      <div>
+        <div id="heroGen"></div>
+      </div>
+      <div class="clearBtn">
+        <button class="button is-danger" id="clearBtn">Clear All Heros</button>
+      </div>
     </div>
-    <div class="clearBtn">
-      <button class="button is-danger" id="clearBtn">Clear All Heros</button>
-    </div>
-    </div>
-  </section>    
-  
+  </section>
+
   <footer class="has-background-info is-full-width">
     <!--API contribution div-->
     <div class="columns">
@@ -67,33 +70,37 @@
           <h2 class="is-size-4 has-text-white py-5 px-3">Development Contributors/ Website Architects:</h2>
 
           <div class="is-size-5 has-text-centered container column is-3 my-5 box has-background-black mx-1">
-            <h3 class="has-text-white has-text-weight-bold">Sophia Nguyen (github: nguy2935)</h3>
-            <a class="is-size-6 is-italic has-text-white"
-              href="https://www.linkedin.com/in/sophia-nguyen-297863164/">Sophia's LinkedIn</a><br />
-            <a class="is-size-6 is-italic has-text-white" href="https://nguy2935.github.io/portfolio/">Sophia's
+            <h3 class="has-text-white">Sophia Nguyen (github: nguy2935)</h3>
+            <a class="is-size-6 has-text-white" href="https://www.linkedin.com/in/sophia-nguyen-297863164/">Sophia's
+              LinkedIn</a><br />
+            <a class="is-size-6 has-text-white" href="https://nguy2935.github.io/portfolio/">Sophia's
               Portfolio</a>
           </div>
 
-        <div class="is-size-5 has-text-centered column is-3 my-5 box has-background-black mx-2">
-          <h3 class="has-text-white has-text-weight-bold">Evan Carlson (github: epc318)</h3>
-          <a class="is-size-6 is-italic has-text-white" href="https://www.linkedin.com/in/evanpcarlson/">Evan's LinkedIn</a><br />
-          <a class="is-size-6 is-italic has-text-white" href="https://epc318.github.io/Portfolio/">Evan's Portfolio</a>
-        </div>
-  
+          <div class="is-size-5 has-text-centered column is-3 my-5 box has-background-black mx-2">
+            <h3 class="has-text-white ">Evan Carlson (github: epc318)</h3>
+            <a class="is-size-6 has-text-white" href="https://www.linkedin.com/in/evanpcarlson/">Evan's
+              LinkedIn</a><br />
+            <a class="is-size-6 has-text-white" href="https://epc318.github.io/Portfolio/">Evan's Portfolio</a>
+          </div>
 
-        <div class="is-size-5 has-text-centered container column is-3 my-5 box has-background-black mx-2">
-          <h3 class="has-text-white has-text-weight-bold">Edison Simondet (github: esimondet)</h3>
-          <a class="is-size-6 is-italic has-text-white" href="https://www.linkedin.com/in/edison-simondet-8863a1209/">Edison's LinkedIn</a><br />
-          <a class="is-size-6 is-italic has-text-white" href="https://esimondet.github.io/challenge-two-professional-portfolio/">Edison's Portfolio</a>
+
+          <div class="is-size-5 has-text-centered container column is-3 my-5 box has-background-black mx-2">
+            <h3 class="has-text-white ">Edison Simondet (github: esimondet)</h3>
+            <a class="is-size-6 has-text-white" href="https://www.linkedin.com/in/edison-simondet-8863a1209/">Edison's
+              LinkedIn</a><br />
+            <a class="is-size-6 has-text-white"
+              href="https://esimondet.github.io/challenge-two-professional-portfolio/">Edison's Portfolio</a>
+          </div>
         </div>
       </div>
-    </div>
   </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps&callback=initMap"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="assets/js/script.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps&callback=initMap"></script>
 </body>
 
 
