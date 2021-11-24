@@ -137,6 +137,7 @@ if (localStorage.length > 0) {
         //load map pins
 
 
+
     }
 }
 
@@ -164,6 +165,19 @@ function initMap() {
         mapTypeId: 'satellite',
     });
     
+    if (localStorage.length > 0) {
+        for (var i = 0; i < localStorage.length; i++) {
+            var hero = JSON.parse(localStorage.getItem(localStorage.key(i))); 
+            var heroLocation = hero.location;
+            var heroLocation2 = new google.maps.LatLng(heroLocation.Lat, heroLocation.Lng);
+            var marker = new google.maps.Marker ({
+                map: map,
+                position: heroLocation2
+            });
+        }
+    }
+
+
     //On "find hero" click, generate a random location and add this to localstorage array
 
     var locationAdd = function () {
