@@ -22,11 +22,10 @@ An interactive webpage that allows the user search for any Marvel hero they want
 You can view the live deployment [HERE](https://esimondet.github.io/hero-maps/)
 
 ## Screenshot of landing page
-![Full page screenshot Hero Maps]()
+![Full page screenshot Hero Maps](assets/images/full-page-screenshot.png)
 
 ## Contribution
  * Edison Simondet (github: esimondet)
  * Sophia Nguyen (github: nguy2935)
  * Evan Carlson (github: epc318)
 
- * No Outside Contributions are being accepted at this time
