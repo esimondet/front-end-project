@@ -2,7 +2,7 @@
 var privKey = "f7b73285d9cec4962b01dc78e356e5b8a0e6b78f";
 var pubKey = "d2eac0264cc9a3719ac91f730963a3e8";
 
-function getHeroData() {
+function getHeroData(location=null) {
 
     //per API documentation, new timestamp needed with every request
     var ts = new Date().getTime();
@@ -25,7 +25,7 @@ function getHeroData() {
                 "name": data.data.results[0].name,
                 "bio": data.data.results[0].description,
                 "imageUrl": data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension,
-                "location": data.data.results[0].random,
+                "location": location,
             }
 
             heroList.heros.push(hero);
@@ -81,11 +81,6 @@ function getHeroData() {
 
 
 };
-
-$(document).on('click', '#heroBtn', function (event) {
-    event.preventDefault();
-    getHeroData();
-})
 
 var heroList = {
     "heros": []
@@ -171,7 +166,7 @@ function initMap() {
     
     //On "find hero" click, generate a random location and add this to localstorage array
 
-    var locationAdd = function (heroName2) {
+    var locationAdd = function () {
         var random = new google.maps.LatLng((Math.random() * (85*2) - 85), (Math.random() * (180*2)-180));
         var marker = new google.maps.Marker ({
             map: map,
@@ -179,15 +174,16 @@ function initMap() {
         });
         map.setCenter(marker.getPosition());
         var locationMarker = {Lat: marker.position.lat(), Lng: marker.position.lng()};
-        localStorage[heroName2 + ' location'] = JSON.stringify(locationMarker);
-      //  localStorage.setItem(location, JSON.stringify(random));
+     //   localStorage[ + ' location'] = JSON.stringify(locationMarker);
+        return locationMarker;
     }
 
     //save marker to local storage
 
 
-    $(document).on('click', '#heroBtn', function () {
-        var heroName2 = $('#heroName').val();
-        locationAdd(heroName2);
+    $(document).on('click', '#heroBtn', function (event) {
+        var location = locationAdd();
+        event.preventDefault();
+        getHeroData(location);
     });
 }
