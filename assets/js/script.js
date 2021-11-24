@@ -25,7 +25,7 @@ function getHeroData() {
                 "name": data.data.results[0].name,
                 "bio": data.data.results[0].description,
                 "imageUrl": data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension,
-                "location": "",
+                "location": data.data.results[0].random,
             }
 
             heroList.heros.push(hero);
@@ -171,18 +171,23 @@ function initMap() {
     
     //On "find hero" click, generate a random location and add this to localstorage array
 
-    var locationAdd = function () {
+    var locationAdd = function (heroName2) {
         var random = new google.maps.LatLng((Math.random() * (85*2) - 85), (Math.random() * (180*2)-180));
         var marker = new google.maps.Marker ({
             map: map,
             position: random
         });
         map.setCenter(marker.getPosition());
+        var locationMarker = {Lat: marker.position.lat(), Lng: marker.position.lng()};
+        localStorage[heroName2 + ' location'] = JSON.stringify(locationMarker);
+      //  localStorage.setItem(location, JSON.stringify(random));
     }
 
     //save marker to local storage
 
+
     $(document).on('click', '#heroBtn', function () {
-        locationAdd();
+        var heroName2 = $('#heroName').val();
+        locationAdd(heroName2);
     });
 }
