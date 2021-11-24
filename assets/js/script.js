@@ -152,10 +152,8 @@ $(document).on('click', '#clearBtn', function (event) {
     $('.card').empty();
     localStorage.clear();
     sessionStorage.clear();
-    console.log(markers);
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
-        console.log(markers)
     }
 })
 
