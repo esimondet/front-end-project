@@ -11,11 +11,12 @@ An interactive webpage that allows the user search for any Marvel hero they want
  * HTML
  * JavaScript
  * CSS
- * JSON
 
 ## Third Party Libraries
 * Marvel Developer Portal
 * Google Maps Platform
+* Google Fonts
+* Bulma
 
 ## Website
 You can view the live deployment [HERE](https://esimondet.github.io/hero-maps/)
