@@ -30,17 +30,23 @@
           known positions. This, combined with a short description and image of the hero, should be a good start!
           <br>
           <br>
-          Use this interactive site to learn about your favorite Marvel superheroes! If you come across a hero that doesn't
+          Use this interactive site to learn about your favorite Marvel superheroes! If you come across a hero that
+          doesn't
           have a bio, you can always clear your hero roster and start fresh!
         </p>
       </div>
 
       <div class="column">
-        <form class="search-box">
-          <input type="text" id="heroName" placeholder="Hero Name" class="search-btn" />
-          <hr>
-          <button class="button" id="heroBtn">Find Hero</button>
-        </form>
+        <div class="colums">
+          <form class="search-box column">
+            <input type="text" id="heroName" placeholder="Hero Name" class="search-btn" />
+            <hr>
+            <button class="button" id="heroBtn">Find Hero</button>
+          </form>
+          <div class="column">
+            <p class="error" id="errorMessage"></p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -105,9 +111,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps"></script>
   <script type="text/javascript" src="assets/js/script.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ9SNNQeJbTM160CRva9ziFzo8G1aTxps&callback=initMap"></script>
 </body>
 
 
